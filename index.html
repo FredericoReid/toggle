@@ -28,9 +28,30 @@
         document.getElementById('toggleForm').addEventListener('submit', function(event) {
             event.preventDefault();
             var toggleValue = document.getElementById('toggleValue').value;
-            // Aqui você pode adicionar a lógica para salvar o valor do toggle no Trello
-            console.log("Valor do toggle:", toggleValue);
-            alert('Valor do toggle salvo: ' + toggleValue);
+            var key = '09c0ff39fbe8e078fef1cee82b998c23';
+            var token = 'ATTA124046578faa0aa59ba82e3a70b357d8844e3b28193af5b1a563cf855c0f7277B70FD589';
+            var cardId = 'ID_DO_CARTÃO_TOGGLE'; // Substitua pelo ID do cartão Toggle
+
+            var url = `https://api.trello.com/1/cards/${cardId}?key=${key}&token=${token}`;
+            var data = {
+                desc: toggleValue
+            };
+
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Valor do toggle salvo: ' + toggleValue);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         });
     </script>
 </body>
