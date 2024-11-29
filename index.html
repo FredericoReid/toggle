@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuração do Power-Up Trello</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #0079bf;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configurações do Power-Up</h1>
+    <p>Altere o valor do toggle:</p>
+    <form id="toggleForm">
+        <label for="toggleValue">Valor:</label>
+        <select id="toggleValue" name="toggleValue">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+        <button type="submit">Salvar</button>
+    </form>
+    <script>
+        document.getElementById('toggleForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var toggleValue = document.getElementById('toggleValue').value;
+            // Aqui você pode adicionar a lógica para salvar o valor do toggle no Trello
+            console.log("Valor do toggle:", toggleValue);
+            alert('Valor do toggle salvo: ' + toggleValue);
+        });
+    </script>
+</body>
+</html>
